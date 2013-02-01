@@ -1,0 +1,34 @@
+{
+    "name": "sjsuscheme",
+    "version": "0.1.0",		
+    "author": "johnny.martin@sjsu.edu",	
+    "description": "sjsu scheme implemented in node, a cs152 homework assignment",
+    "scripts": {
+	"start": "node ./repl",
+	"test": "make test",
+	"predeploy": "echo This will be run before deploying the app",
+	"postdeploy": "echo This will be run after deploying the app"
+    },
+    "repository": {
+	"type": "hg",
+	"url": "https://hg@cs18.cs.sjsu.edu/REPOID"   
+    },
+    "keywords": [
+	"scheme",
+	"interpreter",
+	"lisp",
+	"functional"
+    ],
+    "dependencies" : {
+    },
+    "analyze": false,
+    "devDependencies": {
+	"mocha": "1.8.x",
+	"better-assert": "0.1.x"
+    },
+    "license": "none yet",
+    "engines": {
+	"node": ">=0.8"
+    }
+}
+   
