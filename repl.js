@@ -6,7 +6,7 @@ exports.start = function (line) {
 		input: process.stdin, 
 		output: process.stdout});
 	var lastSexpr;
-	var pmpt = 'Jerrys> ';
+	var pmpt = 'sjsu> ';
 
     rl.on('line', function(line) {
 	// FIXME: need to change to allow for multi-line input, which would

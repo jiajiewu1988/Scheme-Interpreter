@@ -7,7 +7,7 @@ exports.parse = function (line) {
 	// FIXME: hardcoded now, but should parse expr and return an sexpr object.
 	var parseResult = [];
 	var input = line.split(" ");
-	
+
 	var isEmpty = function(expr) { 
 		return (expr === "");
 	};
@@ -28,7 +28,12 @@ exports.parse = function (line) {
 		return expr && typeof expr === 'object' && expr.constructor === Array;
 	};
 
-	console.log(input);
+	var objBuilder = function(type, val) {
+		return {"typ": type,
+				"val": val};
+	}
+
+	//console.log(input);
 	//Check the input expression
 	for (i = 0; i < input.length; i++) {
 		if (isEmpty(input[i])) {
@@ -36,17 +41,16 @@ exports.parse = function (line) {
 			continue;
 		} else if (isNumber(input[i])) {
 			if (line.indexOf('.') >= 0) {
-				parseResult[i] = {"typ": "number", "val": parseFloat(input[i])};
+				parseResult[i] = objBuilder("number", parseFloat(input[i]));
 				continue;
 			} else {
-				parseResult[i] = {"typ": "number", "val": parseInt(input[i])};
+				parseResult[i] = objBuilder("number", parseInt(input[i]));
 				continue;
 			}
 		} else if (isBoolean(input[i])) {
-			parseResult[i] = {"typ": "boolean", "val": input[i]};
+			parseResult[i] = objBuilder("boolean", input[i]);
 		} else if (isString(input[i])) {
-			parseResult[i] = {"typ": "string", "val": input[i]};
-			console.log("called");
+			parseResult[i] = objBuilder("string", input[i]);
 		}else {
 			parseResult[i] = "undefined";
 		}
